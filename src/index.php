@@ -1,16 +1,20 @@
 <?php
-$numbers = [];
-for ($i = 0; $i < 10; $i++) {
-	$numbers[] = rand(1, 100);
+function getArrayOfRandomNumbers(int $arrayLen): array
+{
+	$numbers = [];
+	for ($i = 0; $i < $arrayLen; $i++) {
+		$numbers[] = rand(1, 100);
+	}
+	return $numbers;
 }
+
+$numbers = getArrayOfRandomNumbers(10);
+
+echo "Найменший елемент: " . min($numbers) . "\n";
+echo "Найбільший елемент: " . max($numbers) . "\n";
 
 sort($numbers);
 
-$min = $numbers[0];
-$max = $numbers[count($numbers) - 1];
-
-echo "Найменший елемент: $min\n";
-echo "Найбільший елемент: $max\n";
 
 echo "Відсортований масив: \n";
 print_r($numbers);
